@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APT La Liga - Propuesta Comercial 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul-primary: #1A4699;
+            --celeste: #497BD8;
+            --verde: #85A584;
+            --blanco: #FFFFFF;
+            --negro: #000000;
+            --gris-claro: #F5F5F5;
+            --rojo: #CC0000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--negro);
+            background: var(--gris-claro);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--blanco);
+            letter-spacing: 2px;
+        }
+
+        .nav-logo span {
+            color: var(--verde);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 5px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 30px 50px;
+            position: relative;
+        }
+
+        .section-content {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('imagen_fondo.png') center center / cover no-repeat;
+            color: var(--blanco);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(13, 41, 82, 0.4);
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, 50px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6rem;
+            line-height: 1;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 3.5rem;
+            color: var(--verde);
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out 0.2s both;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--celeste);
+            font-weight: 600;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-year {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* Ecosystem Section */
+        .ecosystem {
+            background: var(--blanco);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--azul-primary);
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: 3px;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .ecosystem-card {
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: var(--blanco);
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ecosystem-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .ecosystem-card.blue {
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+        }
+
+        .ecosystem-card.celeste {
+            background: linear-gradient(135deg, var(--celeste) 0%, var(--azul-primary) 100%);
+        }
+
+        .ecosystem-card.green {
+            background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%);
+        }
+
+        .ecosystem-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .ecosystem-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .leader-card {
+            background: linear-gradient(135deg, var(--celeste) 0%, var(--azul-primary) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: var(--blanco);
+            transition: transform 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: scale(1.05);
+        }
+
+        .leader-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .leader-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Benchmarking Section */
+        .benchmarking {
+            background: linear-gradient(135deg, var(--gris-claro) 0%, var(--blanco) 100%);
+        }
+
+        .comparison-table {
+            background: var(--blanco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+            color: var(--blanco);
+        }
+
+        th {
+            padding: 25px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        th.apt-column {
+            background: linear-gradient(135deg, var(--celeste) 0%, var(--azul-primary) 100%);
+        }
+
+        td {
+            padding: 20px 25px;
+            border-bottom: 1px solid var(--gris-claro);
+            font-size: 1.1rem;
+        }
+
+        tr:hover {
+            background: rgba(73, 123, 216, 0.05);
+        }
+
+        td:first-child {
+            font-weight: 700;
+            color: var(--azul-primary);
+        }
+
+        td:nth-child(2) {
+            color: var(--azul-primary);
+            font-weight: 700;
+        }
+
+        .highlight-banner {
+            background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%);
+            color: var(--blanco);
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* Audience Section */
+        .audience {
+            background: var(--blanco);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--celeste) 0%, var(--azul-primary) 100%);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: var(--blanco);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(73, 123, 216, 0.4);
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4.5rem;
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--azul-primary);
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .profile-list {
+            display: grid;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-item {
+            background: var(--gris-claro);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border-left: 6px solid var(--verde);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .profile-item:hover {
+            background: linear-gradient(135deg, rgba(73, 123, 216, 0.08) 0%, rgba(133, 165, 132, 0.08) 100%);
+            border-left-width: 10px;
+            transform: translateX(5px);
+        }
+
+        .profile-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Venues Section */
+        .venues {
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+            color: var(--blanco);
+        }
+
+        .venues .section-title {
+            color: var(--blanco);
+        }
+
+        .venues-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .venue-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .venue-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+            border-color: var(--verde);
+        }
+
+        .venue-card:nth-child(odd) {
+            background: linear-gradient(135deg, rgba(73, 123, 216, 0.3) 0%, transparent 100%);
+        }
+
+        .venue-card:nth-child(even) {
+            background: linear-gradient(135deg, rgba(133, 165, 132, 0.3) 0%, transparent 100%);
+        }
+
+        .venue-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .venue-count {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .benefits-box {
+            background: var(--blanco);
+            color: var(--azul-primary);
+            padding: 40px;
+            border-radius: 20px;
+            display: grid;
+            gap: 20px;
+        }
+
+        .benefit-item {
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+        }
+
+        /* Content Factory Section */
+        .content-factory {
+            background: var(--blanco);
+        }
+
+        .factory-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .factory-card {
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .factory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .factory-card:nth-child(odd) {
+            background: linear-gradient(135deg, rgba(73, 123, 216, 0.1) 0%, transparent 100%);
+            border-color: var(--celeste);
+        }
+
+        .factory-card:nth-child(even) {
+            background: linear-gradient(135deg, rgba(133, 165, 132, 0.1) 0%, transparent 100%);
+            border-color: var(--verde);
+        }
+
+        .factory-icon {
+            font-size: 3rem;
+        }
+
+        .factory-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--azul-primary);
+            letter-spacing: 2px;
+        }
+
+        .factory-desc {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .impact-banner {
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+            color: var(--blanco);
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 3px;
+        }
+
+        /* Pro Finals Section */
+        .pro-finals {
+            background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%);
+            color: var(--blanco);
+        }
+
+        .pro-finals .section-title {
+            color: var(--blanco);
+            font-size: 4rem;
+        }
+
+        .finals-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-weight: 600;
+        }
+
+        .finals-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .finals-card {
+            background: var(--blanco);
+            color: var(--azul-primary);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .finals-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .finals-card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .finals-card-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .finals-card-desc {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .finals-quote {
+            text-align: center;
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-top: 60px;
+            font-weight: 700;
+        }
+
+        /* Packages Section */
+        .packages {
+            background: var(--gris-claro);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .package-card {
+            background: var(--blanco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .package-header {
+            padding: 30px;
+            color: var(--blanco);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .package-card:nth-child(1) .package-header {
+            background: linear-gradient(135deg, var(--celeste) 0%, var(--azul-primary) 100%);
+        }
+
+        .package-card:nth-child(2) .package-header {
+            background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%);
+        }
+
+        .package-card:nth-child(3) .package-header,
+        .package-card:nth-child(4) .package-header {
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+        }
+
+        .package-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .package-icon {
+            font-size: 2.5rem;
+        }
+
+        .package-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .package-body {
+            padding: 30px;
+        }
+
+        .package-features {
+            list-style: none;
+            display: grid;
+            gap: 15px;
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--verde);
+            font-weight: 900;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .discount-banner {
+            background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%);
+            color: var(--blanco);
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+            color: var(--blanco);
+        }
+
+        .pricing .section-title {
+            color: var(--blanco);
+        }
+
+        .pricing-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-box {
+            background: var(--blanco);
+            color: var(--azul-primary);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .pricing-label {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .pricing-amount {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .market-value {
+            color: var(--rojo);
+        }
+
+        .founder-value {
+            color: var(--verde);
+        }
+
+        .pricing-note {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .vs-divider {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--verde);
+        }
+
+        /* Industries Section */
+        .industries {
+            background: var(--blanco);
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .industry-card {
+            background: linear-gradient(135deg, rgba(73, 123, 216, 0.08) 0%, rgba(133, 165, 132, 0.08) 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 3px solid var(--celeste);
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--verde);
+            box-shadow: 0 15px 40px rgba(73, 123, 216, 0.2);
+        }
+
+        .industry-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .industry-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--azul-primary);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .industry-desc {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Urgency Section */
+        .urgency {
+            background: linear-gradient(135deg, var(--rojo) 0%, #990000 100%);
+            color: var(--blanco);
+        }
+
+        .urgency-icon-large {
+            text-align: center;
+            font-size: 8rem;
+            margin-bottom: 40px;
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .urgency .section-title {
+            color: var(--blanco);
+            font-size: 4.5rem;
+        }
+
+        .urgency-subtitle {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .urgency-box {
+            background: var(--blanco);
+            color: var(--azul-primary);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .urgency-list {
+            display: grid;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .urgency-list li {
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .urgency-list-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .urgency-list li:first-child {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--rojo);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);
+            color: var(--blanco);
+        }
+
+        .contact .section-title {
+            color: var(--blanco);
+            font-size: 5rem;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 60px;
+        }
+
+        .contact-box {
+            background: var(--blanco);
+            color: var(--azul-primary);
+            padding: 60px;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .contact-item {
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--gris-claro);
+            border-radius: 12px;
+        }
+
+        .contact-item-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .deadline-box {
+            background: rgba(204, 0, 0, 0.2);
+            border: 3px solid var(--rojo);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 10px); }
+        }
+
+        .scroll-arrow {
+            font-size: 3rem;
+            color: var(--blanco);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .ecosystem-grid,
+            .leaders-grid,
+            .packages-grid,
+            .factory-grid,
+            .finals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .venues-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .vs-divider {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 20px 40px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .venues-grid,
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .package-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .contact-box {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                APT <span>LA LIGA</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#ecosystem">Ecosistema</a></li>
+                <li><a href="#benchmarking">Benchmarking</a></li>
+                <li><a href="#apt-pro">APT Pro</a></li>
+                <li><a href="#packages">Paquetes</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="section-content hero-content">
+            <h1 class="hero-title">ARGENTINA PADEL TOUR</h1>
+            <h2 class="hero-subtitle">LA LIGA</h2>
+            <p class="hero-tagline">Jugás Amateur, Lo Vivís Profesional</p>
+            <p class="hero-year">PROPUESTA COMERCIAL 2026</p>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section id="ecosystem" class="ecosystem">
+        <div class="section-content">
+            <h2 class="section-title">El Respaldo del Ecosistema Más Poderoso</h2>
+            
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card blue">
+                    <span class="ecosystem-icon">🏆</span>
+                    <div>ASOCIACIÓN ARGENTINA DE PÁDEL (AAP)</div>
+                </div>
+                <div class="ecosystem-card celeste">
+                    <span class="ecosystem-icon">👥</span>
+                    <div>THE REAL PLAYERS PADEL AGENCY</div>
+                    <div class="ecosystem-subtitle">Augsburger • Chozas • Libaak</div>
+                </div>
+                <div class="ecosystem-card green">
+                    <span class="ecosystem-icon">🎾</span>
+                    <div>SIUX</div>
+                    <div class="ecosystem-subtitle">Marca Europea Líder</div>
+                </div>
+                <div class="ecosystem-card blue">
+                    <span class="ecosystem-icon">⭐</span>
+                    <div>APT LA LIGA</div>
+                    <div class="ecosystem-subtitle">El Semillero del Pádel Profesional</div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 2.5rem; margin-top: 60px;">Los Líderes del Proyecto</h3>
+            
+            <div class="leaders-grid">
+                <div class="leader-card">
+                    <h3 class="leader-name">LISANDRO BORGES</h3>
+                    <p class="leader-role">• Presidente AAP<br>
+                    • CEO Argentina Padel Tour Pro<br>
+                    • Socio Fundador The Real Players Padel Agency<br>
+                    • Co-dueño SIUX Argentina</p>
+                </div>
+                <div class="leader-card">
+                    <h3 class="leader-name">FACUNDO GUZZETTI</h3>
+                    <p class="leader-role">• Director Argentina Padel Tour Pro<br>
+                    • Socio Fundador The Real Players Padel Agency<br>
+                    • Co-dueño SIUX Argentina<br>
+                    • 115k+ seguidores (Mercado de Pádel)</p>
+                </div>
+            </div>
+
+            <div class="leaders-grid" style="margin-top: 30px;">
+                <div class="leader-card" style="background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%);">
+                    <h3 class="leader-name">TOMÁS JUST TISCORNIA</h3>
+                    <p class="leader-role">CEO y Socio Fundador de Argentina Padel Tour La Liga</p>
+                </div>
+                <div class="leader-card" style="background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%);">
+                    <h3 class="leader-name">JUAN IGNACIO LÓPEZ LUJÁN</h3>
+                    <p class="leader-role">Director Comercial Argentina Padel Tour La Liga</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmarking Section -->
+    <section id="benchmarking" class="benchmarking">
+        <div class="section-content">
+            <h2 class="section-title">Por Qué el Pádel Supera al Tenis y Golf</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: var(--verde); font-weight: 700; margin-bottom: 50px; font-style: italic;">
+                COMPARATIVA DE VALOR PARA PATROCINADORES
+            </p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>MÉTRICA</th>
+                            <th class="apt-column">APT LA LIGA</th>
+                            <th>TENIS AMATEUR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jugadores Anuales</td>
+                            <td>1.500</td>
+                            <td>1.000-1.200</td>
+                        </tr>
+                        <tr>
+                            <td>Fechas Competitivas</td>
+                            <td>25 fechas</td>
+                            <td>12-15 torneos</td>
+                        </tr>
+                        <tr>
+                            <td>Sedes Activas</td>
+                            <td>25 sedes premium</td>
+                            <td>15-20 sedes</td>
+                        </tr>
+                        <tr>
+                            <td>Frecuencia de Marca</td>
+                            <td>Domingos Mar-Dic</td>
+                            <td>Esporádico</td>
+                        </tr>
+                        <tr>
+                            <td>Aval Institucional</td>
+                            <td>AAP Oficial</td>
+                            <td>AAT</td>
+                        </tr>
+                        <tr>
+                            <td>Edad Promedio</td>
+                            <td>25-50 años</td>
+                            <td>18-60 años</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-banner">
+                💡 MÁS IMPACTOS • MÁS FRECUENCIA • MEJOR RETORNO
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience Section -->
+    <section id="audience" class="audience">
+        <div class="section-content">
+            <h2 class="section-title">Audiencia Premium y Exclusiva</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">1.500+</span>
+                    <span class="stat-label">Jugadores Proyectados</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25-50</span>
+                    <span class="stat-label">Años Promedio</span>
+                </div>
+            </div>
+
+            <h3 class="profile-title">Perfil del Jugador APT La Liga</h3>
+            
+            <div class="profile-list">
+                <div class="profile-item">
+                    <span class="profile-icon">💼</span>
+                    <span>Profesionales exitosos y emprendedores</span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-icon">🏠</span>
+                    <span>Residentes de CABA, Zona Norte, Oeste, Sur y countries de alrededores</span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-icon">📱</span>
+                    <span>Activos en redes sociales (generadores de contenido)</span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-icon">⚡</span>
+                    <span>Buscan experiencias premium y networking de calidad</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venues Section -->
+    <section id="venues" class="venues">
+        <div class="section-content">
+            <h2 class="section-title">Presencia en Todo Buenos Aires</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: var(--celeste); font-weight: 700; margin-bottom: 50px; font-style: italic;">
+                25 SEDES SELECCIONADAS EN LAS MEJORES UBICACIONES
+            </p>
+            
+            <div class="venues-grid">
+                <div class="venue-card">
+                    <h3 class="venue-name">ZONA NORTE</h3>
+                    <p class="venue-count">8 sedes</p>
+                </div>
+                <div class="venue-card">
+                    <h3 class="venue-name">CABA</h3>
+                    <p class="venue-count">7 sedes</p>
+                </div>
+                <div class="venue-card">
+                    <h3 class="venue-name">ZONA OESTE</h3>
+                    <p class="venue-count">6 sedes</p>
+                </div>
+                <div class="venue-card">
+                    <h3 class="venue-name">ZONA SUR</h3>
+                    <p class="venue-count">4 sedes</p>
+                </div>
+            </div>
+
+            <div class="benefits-box">
+                <div class="benefit-item">
+                    <span class="benefit-icon">📍</span>
+                    <span>Cobertura territorial incomparable</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <span>Acceso directo a los clubes de mayor categoría</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔄</span>
+                    <span>Rotación semanal = máxima exposición de marca</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Factory Section -->
+    <section id="content" class="content-factory">
+        <div class="section-content">
+            <h2 class="section-title">No Comprás Publicidad, Invertís en Media</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: var(--verde); font-weight: 700; margin-bottom: 50px; font-style: italic;">
+                CADA JUGADOR ES UN MULTIPLICADOR DE TU MARCA
+            </p>
+            
+            <div class="factory-grid">
+                <div class="factory-card">
+                    <span class="factory-icon">📸</span>
+                    <h3 class="factory-title">Fotos Profesionales</h3>
+                    <p class="factory-desc">Cada fecha genera +500 fotos que los jugadores comparten en sus redes</p>
+                </div>
+                <div class="factory-card">
+                    <span class="factory-icon">🎥</span>
+                    <h3 class="factory-title">Streaming Broadcast</h3>
+                    <p class="factory-desc">Transmisiones en vivo de partidos con miles de visualizaciones</p>
+                </div>
+                <div class="factory-card">
+                    <span class="factory-icon">📱</span>
+                    <h3 class="factory-title">Welcome Pack</h3>
+                    <p class="factory-desc">Trípodes para cada jugador = Tu logo en miles de historias de Instagram</p>
+                </div>
+                <div class="factory-card">
+                    <span class="factory-icon">🌐</span>
+                    <h3 class="factory-title">Redes Sociales</h3>
+                    <p class="factory-desc">@aptlaliga + @mercadodepadel = 115k+ seguidores de alcance</p>
+                </div>
+            </div>
+
+            <div class="impact-banner">
+                = MILES DE IMPACTOS ORGÁNICOS MENSUALES CON TU LOGO
+            </div>
+        </div>
+    </section>
+
+    <!-- Pro Finals Section -->
+    <section id="finals" class="pro-finals">
+        <div class="section-content">
+            <h2 class="section-title">Finales en el Escenario Pro</h2>
+            <p class="finals-subtitle">
+                Los finalistas de La Liga compiten en las mismas sedes que el circuito profesional de Argentina Padel Tour
+            </p>
+            
+            <div class="finals-grid">
+                <div class="finals-card">
+                    <div class="finals-card-icon">🏆</div>
+                    <h3 class="finals-card-title">MASTER FINAL</h3>
+                    <p class="finals-card-desc">Experiencia de competencia profesional</p>
+                </div>
+                <div class="finals-card">
+                    <div class="finals-card-icon">📺</div>
+                    <h3 class="finals-card-title">COBERTURA PREMIUM</h3>
+                    <p class="finals-card-desc">Transmisión con calidad broadcast</p>
+                </div>
+            </div>
+
+            <p class="finals-quote">
+                Del pádel amateur al profesional: Un camino real de ascenso avalado por la AAP
+            </p>
+        </div>
+    </section>
+
+    <!-- APT Pro Section - NEW -->
+    <section id="apt-pro" class="audience">
+        <div class="section-content">
+            <h2 class="section-title">Conexión Directa con el Tour Profesional</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: var(--verde); font-weight: 700; margin-bottom: 50px; font-style: italic;">
+                ARGENTINA PADEL TOUR PRO - NUESTRA LIGA NACIONAL
+            </p>
+            
+            <div style="background: linear-gradient(135deg, rgba(73, 123, 216, 0.1) 0%, rgba(133, 165, 132, 0.1) 100%); padding: 50px; border-radius: 20px; border: 3px solid var(--celeste); margin-bottom: 50px;">
+                <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--azul-primary); text-align: center; margin-bottom: 30px; letter-spacing: 2px;">
+                    JUGADORES DEL RANKING MUNDIAL QUE COMPITEN EN APT PRO
+                </h3>
+                <p style="text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 40px; line-height: 1.6;">
+                    Todos ellos integran <strong style="color: var(--azul-primary);">The Players Agency</strong>, vinculando directamente el circuito amateur con las estrellas del pádel profesional
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+                    <div class="profile-item" style="background: linear-gradient(135deg, var(--celeste) 0%, var(--azul-primary) 100%); color: var(--blanco); border-left: 6px solid var(--verde);">
+                        <span class="profile-icon">🥇</span>
+                        <div>
+                            <strong style="font-size: 1.2rem;">Leo Augsburger</strong><br>
+                            <span style="opacity: 0.9;">Ranking Mundial #10</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-item" style="background: linear-gradient(135deg, var(--celeste) 0%, var(--azul-primary) 100%); color: var(--blanco); border-left: 6px solid var(--verde);">
+                        <span class="profile-icon">🏆</span>
+                        <div>
+                            <strong style="font-size: 1.2rem;">Alex Chozas</strong><br>
+                            <span style="opacity: 0.9;">Ranking Mundial #28</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-item" style="background: linear-gradient(135deg, var(--celeste) 0%, var(--azul-primary) 100%); color: var(--blanco); border-left: 6px solid var(--verde);">
+                        <span class="profile-icon">⭐</span>
+                        <div>
+                            <strong style="font-size: 1.2rem;">Tino Libaak</strong><br>
+                            <span style="opacity: 0.9;">Ranking Mundial #38</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-item" style="background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%); color: var(--blanco); border-left: 6px solid var(--azul-primary);">
+                        <span class="profile-icon">🎾</span>
+                        <div>
+                            <strong style="font-size: 1.2rem;">Juan Ignacio Rubini</strong><br>
+                            <span style="opacity: 0.9;">Ranking Mundial #52</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-item" style="background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%); color: var(--blanco); border-left: 6px solid var(--azul-primary);">
+                        <span class="profile-icon">🚀</span>
+                        <div>
+                            <strong style="font-size: 1.2rem;">Ignacio Archieri</strong><br>
+                            <span style="opacity: 0.9;">Ranking Mundial #210</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-item" style="background: linear-gradient(135deg, var(--verde) 0%, #6B8A6B 100%); color: var(--blanco); border-left: 6px solid var(--azul-primary);">
+                        <span class="profile-icon">💪</span>
+                        <div>
+                            <strong style="font-size: 1.2rem;">Octavio Alvarez</strong><br>
+                            <span style="opacity: 0.9;">Ranking Mundial #228</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-banner" style="background: linear-gradient(135deg, var(--azul-primary) 0%, #0D2952 100%);">
+                🌟 TU MARCA CONECTADA CON EL TOP 10 MUNDIAL DEL PÁDEL
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="section-content">
+            <h2 class="section-title">Paquetes de Patrocinio 2026</h2>
+            <p style="text-align: center; font-size: 1.5rem; color: var(--rojo); font-weight: 900; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px;">
+                ⚠️ CUPOS LIMITADOS ⚠️
+            </p>
+            
+            <div class="packages-grid">
+                <!-- Platino -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-title">
+                            <span class="package-icon">💎</span>
+                            <span>PAQUETE PLATINO</span>
+                        </div>
+                        <div class="package-price">$3.500.000</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Naming del circuito completo: "APT LA LIGA powered by [MARCA]"</li>
+                            <li>Logo en todas las camisetas oficiales (1.500 jugadores)</li>
+                            <li>Activaciones en las 25 fechas del año</li>
+                            <li>Naming Rights del Master Final</li>
+                            <li>Posts mensuales pautados en redes (115k+ alcance)</li>
+                            <li>Espacio premium en todas las sedes</li>
+                            <li>Paquete de canje para activaciones</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Oro -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-title">
+                            <span class="package-icon">🥇</span>
+                            <span>PAQUETE ORO</span>
+                        </div>
+                        <div class="package-price">$1.800.000</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Naming de un torneo completo (Apertura/Clausura)</li>
+                            <li>Logo destacado en camisetas (pecho o espalda)</li>
+                            <li>Activaciones en todas las fechas del torneo</li>
+                            <li>Posts pautados semanales durante el torneo</li>
+                            <li>Cartelería premium en sedes</li>
+                            <li>Paquete de canje para activaciones</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Plata -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-title">
+                            <span class="package-icon">🥈</span>
+                            <span>PAQUETE PLATA</span>
+                        </div>
+                        <div class="package-price">$900.000</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Naming de una categoría específica (ej: "5ta powered by [MARCA]")</li>
+                            <li>Logo en camisetas de todos los equipos de esa categoría</li>
+                            <li>Posts pautados mensuales destacando jugadores de la categoría</li>
+                            <li>Premios especiales para campeones de la categoría</li>
+                            <li>Paquete de canje para activaciones</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bronce -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-title">
+                            <span class="package-icon">🥉</span>
+                            <span>PAQUETE BRONCE</span>
+                        </div>
+                        <div class="package-price">$350.000</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li>Naming de una fecha específica del calendario</li>
+                            <li>Cartelería en sede durante toda la jornada</li>
+                            <li>Menciones pautadas en redes sociales pre, durante y post fecha</li>
+                            <li>Posibilidad de stand promocional en la sede</li>
+                            <li>Paquete de canje para activaciones</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="discount-banner">
+                💰 DESCUENTO DEL 25% PAGANDO EL AÑO COMPLETO POR ADELANTADO
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="section-content">
+            <h2 class="section-title">Tarifa Fundacional Pre-Season 2026</h2>
+            <p style="text-align: center; font-size: 1.5rem; color: var(--celeste); font-weight: 700; margin-bottom: 60px; font-style: italic;">
+                OPORTUNIDAD ÚNICA PARA SOCIOS PIONEROS
+            </p>
+            
+            <div class="pricing-comparison">
+                <div class="pricing-box">
+                    <p class="pricing-label">Valor de Mercado Real del Naming Rights<br>(según benchmarking con tenis amateur)</p>
+                    <div class="pricing-amount market-value">$12.000.000+</div>
+                </div>
+                
+                <div class="vs-divider">VS</div>
+                
+                <div class="pricing-box">
+                    <p class="pricing-label">Tu Precio Fundacional Hoy</p>
+                    <div class="pricing-amount founder-value">$3.500.000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="industries">
+        <div class="section-content">
+            <h2 class="section-title">Marcas que Buscamos</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: var(--verde); font-weight: 700; margin-bottom: 50px; font-style: italic;">
+                SECTORES ESTRATÉGICOS PARA EL PERFIL APT
+            </p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">🚗</div>
+                    <h3 class="industry-title">AUTOMOTRIZ</h3>
+                    <p class="industry-desc">SUVs, Pick-ups<br>Test drives en sedes premium</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">💧</div>
+                    <h3 class="industry-title">HIDRATACIÓN</h3>
+                    <p class="industry-desc">Bebidas deportivas<br>Aguas premium</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">📱</div>
+                    <h3 class="industry-title">TECNOLOGÍA</h3>
+                    <p class="industry-desc">Wearables, Apps<br>Equipamiento deportivo</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">💪</div>
+                    <h3 class="industry-title">SUPLEMENTOS</h3>
+                    <p class="industry-desc">Proteínas, energizantes<br>Nutrición deportiva</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">👟</div>
+                    <h3 class="industry-title">MARCAS DEPORTIVAS</h3>
+                    <p class="industry-desc">Indumentaria, calzado<br>Equipamiento técnico</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🎒</div>
+                    <h3 class="industry-title">ACCESORIOS</h3>
+                    <p class="industry-desc">Bolsos, mochilas<br>Accesorios de entrenamiento</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🏥</div>
+                    <h3 class="industry-title">SALUD</h3>
+                    <p class="industry-desc">Medicina prepaga<br>Seguros premium</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🏦</div>
+                    <h3 class="industry-title">BANCA</h3>
+                    <p class="industry-desc">Tarjetas Premium<br>Benefits exclusivos</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🍔</div>
+                    <h3 class="industry-title">CONSUMO</h3>
+                    <p class="industry-desc">Gastronomía<br>Alimentos saludables</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section id="urgency" class="urgency">
+        <div class="section-content">
+            <div class="urgency-icon-large">⏰</div>
+            <h2 class="section-title">DEADLINE: 28 DE FEBRERO 2026</h2>
+            <p class="urgency-subtitle">ÚLTIMOS CUPOS CON TARIFA FUNDACIONAL</p>
+            
+            <div class="urgency-box">
+                <ul class="urgency-list">
+                    <li>
+                        <span class="urgency-list-icon">⚠️</span>
+                        <span>Los precios subirán un 30% después del inicio el 22 de marzo</span>
+                    </li>
+                    <li>
+                        <span class="urgency-list-icon">🎯</span>
+                        <span>Sé parte de los sponsors fundacionales</span>
+                    </li>
+                    <li>
+                        <span class="urgency-list-icon">🏆</span>
+                        <span>Asociá tu marca con el circuito amateur más profesional de Argentina</span>
+                    </li>
+                    <li>
+                        <span class="urgency-list-icon">💎</span>
+                        <span>Momento histórico: el circuito amateur más importante del país</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-content">
+            <h2 class="section-title">HABLEMOS</h2>
+            <p class="contact-subtitle">Estamos listos para crear el paquete perfecto para tu marca</p>
+            
+            <div class="contact-box">
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <span class="contact-item-icon">📞</span>
+                        <span><strong>Juan Ignacio López Luján</strong><br>+54 9 11 6853-9779 | Zona Norte / CABA</span>
+                    </li>
+                    <li class="contact-item">
+                        <span class="contact-item-icon">✉️</span>
+                        <span><a href="/cdn-cgi/l/email-protection#7a1b171b0e1f0f083a1b081d1f140e13141b0a1b1e1f160e150f0854191517" style="color: var(--azul-primary); text-decoration: none;"><span class="__cf_email__" data-cfemail="36575b5742534344765744515358425f5857465752535a425943441855595b">[email&#160;protected]</span></a></span>
+                    </li>
+                    <li class="contact-item">
+                        <span class="contact-item-icon">📱</span>
+                        <span>@aptlaliga</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="deadline-box">
+                ¡Cerremos antes del 28 de febrero!
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; opacity: 0.8;">
+                © 2026 Argentina Padel Tour Amateur | Todos los derechos reservados
+            </p>
+        </div>
+    </section>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.ecosystem-card, .leader-card, .stat-card, .factory-card, .package-card, .industry-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Active navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const section
